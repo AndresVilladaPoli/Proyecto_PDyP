@@ -1,0 +1,18 @@
+<!doctype html><html><body>
+<h2>Editar Porcino</h2>
+<form method="post">
+  Identificación: <input name="identificacion" value="{{ porcino.identificacion }}"><br>
+  Raza: <input name="raza" value="{{ porcino.raza }}"><br>
+  Edad: <input name="edad" value="{{ porcino.edad }}"><br>
+  Peso: <input name="peso" value="{{ porcino.peso }}"><br>
+  Alimentación: <input name="alimentacion" value="{{ porcino.alimentacion }}"><br>
+  Cliente:
+  <select name="cliente_id">
+    {% for c in clientes %}
+      <option value="{{c.id}}" {% if porcino.cliente_id==c.id %}selected{% endif %}>{{ c.nombres }} {{ c.apellidos }}</option>
+    {% endfor %}
+  </select><br>
+  <button type="submit">Guardar</button>
+</form>
+<a href="{{ url_for('porcinos') }}">Volver</a>
+</body></html>

@@ -1,0 +1,14 @@
+<!doctype html><html><body>
+<h2>Detalle Alimentación</h2>
+<p>Descripción: {{ alimentacion.descripcion }}</p>
+<p>Dosis: {{ alimentacion.dosis }}</p>
+<h3>Porcinos con esta alimentación</h3>
+<ul>
+  {% for p in alimentacion.porcinos %}
+    <li><a href="{{ url_for('ver_porcino', id=p.id) }}">{{ p.identificacion }}</a></li>
+  {% else %}
+    <li>Sin porcinos asociados</li>
+  {% endfor %}
+</ul>
+<a href="{{ url_for('alimentaciones') }}">Volver</a>
+</body></html>

@@ -1,0 +1,9 @@
+<!doctype html><html><body>
+<h2>Editar Alimentación</h2>
+<form method="post">
+  Descripción: <input name="descripcion" value="{{ alimentacion.descripcion }}"><br>
+  Dosis: <input name="dosis" value="{{ alimentacion.dosis }}"><br>
+  <button type="submit">Guardar</button>
+</form>
+<a href="{{ url_for('alimentaciones') }}">Volver</a>
+</body></html>

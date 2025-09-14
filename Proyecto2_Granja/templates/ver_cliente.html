@@ -1,0 +1,16 @@
+<!doctype html><html><body>
+<h2>Detalle Cliente</h2>
+<p>Cédula: {{ cliente.cedula }}</p>
+<p>Nombre: {{ cliente.nombres }} {{ cliente.apellidos }}</p>
+<p>Dirección: {{ cliente.direccion }}</p>
+<p>Teléfono: {{ cliente.telefono }}</p>
+<h3>Porcinos del cliente</h3>
+<ul>
+  {% for p in cliente.porcinos %}
+    <li><a href="{{ url_for('ver_porcino', id=p.id) }}">{{ p.identificacion }}</a> - {{ p.raza }}</li>
+  {% else %}
+    <li>Sin porcinos</li>
+  {% endfor %}
+</ul>
+<a href="{{ url_for('clientes') }}">Volver</a>
+</body></html>

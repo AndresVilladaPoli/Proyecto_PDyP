@@ -41,6 +41,24 @@ def eliminar_cliente(id):
     db.session.commit()
     return redirect(url_for("clientes"))
 
+@app.route("/clientes/<int:id>/editar", methods=["GET", "POST"])
+def editar_cliente(id):
+    cliente = Cliente.query.get_or_404(id)
+    if request.method == "POST":
+        cliente.cedula = request.form["cedula"]
+        cliente.nombres = request.form["nombres"]
+        cliente.apellidos = request.form["apellidos"]
+        cliente.direccion = request.form["direccion"]
+        cliente.telefono = request.form["telefono"]
+        db.session.commit()
+        return redirect(url_for("clientes"))
+    return render_template("editar_cliente.html", cliente=cliente)
+
+@app.route("/clientes/<int:id>")
+def ver_cliente(id):
+    cliente = Cliente.query.get_or_404(id)
+    return render_template("ver_cliente.html", cliente=cliente)
+
 #CRUD PORCINOS
 @app.route("/porcinos")
 def porcinos():
@@ -71,6 +89,27 @@ def eliminar_porcino(id):
     db.session.commit()
     return redirect(url_for("porcinos"))
 
+@app.route("/porcinos/<int:id>/editar", methods=["GET", "POST"])
+def editar_porcino(id):
+    porcino = Porcino.query.get_or_404(id)
+    clientes = Cliente.query.all()
+    alimentaciones = Alimentacion.query.all()
+    if request.method == "POST":
+        porcino.identificacion = request.form['identificacion']
+        porcino.raza = request.form['raza']
+        porcino.edad = int(request.form.get('edad') or 0)
+        porcino.peso = float(request.form.get('peso') or 0)
+        porcino.alimentacion = request.form.get('alimentacion')
+        porcino.cliente_id = int(request.form.get('cliente_id'))
+        db.session.commit()
+        return redirect(url_for("porcinos"))
+    return render_template("editar_porcino.html", porcino=porcino, clientes=clientes, alimentaciones=alimentaciones)
+
+@app.route("/porcinos/<int:id>")
+def ver_porcino(id):
+    porcino = Porcino.query.get_or_404(id)
+    return render_template("ver_porcino.html", porcino=porcino)
+
 #CRUD ALIMENTACION
 @app.route("/alimentaciones")
 def alimentaciones():
@@ -95,6 +134,21 @@ def eliminar_alimentacion(id):
     db.session.delete(a)
     db.session.commit()
     return redirect(url_for("alimentaciones"))
+
+@app.route("/alimentaciones/<int:id>/editar", methods=["GET", "POST"])
+def editar_alimentacion(id):
+    a = Alimentacion.query.get_or_404(id)
+    if request.method == "POST":
+        a.descripcion = request.form['descripcion']
+        a.dosis = request.form['dosis']
+        db.session.commit()
+        return redirect(url_for("alimentaciones"))
+    return render_template("editar_alimentacion.html", alimentacion=a)
+
+@app.route("/alimentaciones/<int:id>")
+def ver_alimentacion(id):
+    a = Alimentacion.query.get_or_404(id)
+    return render_template("ver_alimentacion.html", alimentacion=a)
 
 #REPORTE
 @app.route("/reporte")

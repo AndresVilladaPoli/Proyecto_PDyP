@@ -1,0 +1,9 @@
+<!doctype html><html><body>
+<h2>Detalle Porcino</h2>
+<p>ID: {{ porcino.identificacion }}</p>
+<p>Raza: {{ porcino.raza }}</p>
+<p>Edad: {{ porcino.edad }}</p>
+<p>Peso: {{ porcino.peso }}</p>
+<p>Cliente: {% if porcino.cliente %} <a href="{{ url_for('ver_cliente', id=porcino.cliente.id) }}">{{ porcino.cliente.nombres }} {{ porcino.cliente.apellidos }}</a> {% else %} - {% endif %}</p>
+<a href="{{ url_for('porcinos') }}">Volver</a>
+</body></html>
