@@ -1,0 +1,1 @@
+<h2>Porcinos</h2>{% for p in porcinos %}<p>{{p.identificacion}} - {{p.raza}} - Cliente: {{p.cliente.nombres}} <a href='/porcinos/eliminar/{{p.id}}'>Eliminar</a></p>{% endfor %}<a href='/porcinos/nuevo'>Nuevo Porcino</a>

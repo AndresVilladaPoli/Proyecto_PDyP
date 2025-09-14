@@ -1,0 +1,1 @@
+<h2>Clientes</h2>{% for c in clientes %}<p>{{c.nombres}} {{c.apellidos}} - <a href='/clientes/eliminar/{{c.id}}'>Eliminar</a></p>{% endfor %}<a href='/clientes/nuevo'>Nuevo Cliente</a>
