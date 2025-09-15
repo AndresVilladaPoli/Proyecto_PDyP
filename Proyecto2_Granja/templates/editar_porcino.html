@@ -1,18 +1,53 @@
-<!doctype html><html><body>
-<h2>Editar Porcino</h2>
-<form method="post">
-  Identificación: <input name="identificacion" value="{{ porcino.identificacion }}"><br>
-  Raza: <input name="raza" value="{{ porcino.raza }}"><br>
-  Edad: <input name="edad" value="{{ porcino.edad }}"><br>
-  Peso: <input name="peso" value="{{ porcino.peso }}"><br>
-  Alimentación: <input name="alimentacion" value="{{ porcino.alimentacion }}"><br>
-  Cliente:
-  <select name="cliente_id">
-    {% for c in clientes %}
-      <option value="{{c.id}}" {% if porcino.cliente_id==c.id %}selected{% endif %}>{{ c.nombres }} {{ c.apellidos }}</option>
-    {% endfor %}
-  </select><br>
-  <button type="submit">Guardar</button>
-</form>
-<a href="{{ url_for('porcinos') }}">Volver</a>
-</body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Porcino</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="navbar">
+    <a href="/">🏠 Inicio</a>
+    <a href="/clientes">👤 Clientes</a>
+    <a href="/porcinos">🐖 Porcinos</a>
+    <a href="/alimentaciones">🍽️ Alimentaciones</a>
+    <a href="/reporte">📋 Reporte</a>
+</div>
+
+<div class="container">
+    <h2>Editar Porcino</h2>
+
+    <form method="post">
+        <label>Identificación:</label>
+        <input name="identificacion" value="{{ porcino.identificacion }}">
+
+        <label>Raza:</label>
+        <input name="raza" value="{{ porcino.raza }}">
+
+        <label>Edad:</label>
+        <input name="edad" value="{{ porcino.edad }}">
+
+        <label>Peso:</label>
+        <input name="peso" value="{{ porcino.peso }}">
+
+        <label>Alimentación:</label>
+        <input name="alimentacion" value="{{ porcino.alimentacion }}">
+
+        <label>Cliente:</label>
+        <select name="cliente_id">
+            {% for c in clientes %}
+                <option value="{{ c.id }}" {% if porcino.cliente_id==c.id %}selected{% endif %}>
+                    {{ c.nombres }} {{ c.apellidos }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <button class="btn" type="submit">Guardar</button>
+    </form>
+
+    <br>
+    <a class="btn" href="{{ url_for('porcinos') }}">Volver</a>
+</div>
+
+</body>
+</html>

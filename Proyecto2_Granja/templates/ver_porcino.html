@@ -1,9 +1,37 @@
-<!doctype html><html><body>
-<h2>Detalle Porcino</h2>
-<p>ID: {{ porcino.identificacion }}</p>
-<p>Raza: {{ porcino.raza }}</p>
-<p>Edad: {{ porcino.edad }}</p>
-<p>Peso: {{ porcino.peso }}</p>
-<p>Cliente: {% if porcino.cliente %} <a href="{{ url_for('ver_cliente', id=porcino.cliente.id) }}">{{ porcino.cliente.nombres }} {{ porcino.cliente.apellidos }}</a> {% else %} - {% endif %}</p>
-<a href="{{ url_for('porcinos') }}">Volver</a>
-</body></html>
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+    <a href="/">🏠 Inicio</a>
+    <a href="/clientes">👤 Clientes</a>
+    <a href="/porcinos">🐖 Porcinos</a>
+    <a href="/alimentaciones">🍽️ Alimentaciones</a>
+    <a href="/reporte">📋 Reporte</a>
+</div>
+
+<div class="container">
+    <h2>Detalle Porcino</h2>
+
+    <div class="card">
+        <p><strong>ID:</strong> {{ porcino.identificacion }}</p>
+        <p><strong>Raza:</strong> {{ porcino.raza }}</p>
+        <p><strong>Edad:</strong> {{ porcino.edad }}</p>
+        <p><strong>Peso:</strong> {{ porcino.peso }}</p>
+        <p><strong>Cliente:</strong>
+            {% if porcino.cliente %}
+                <a href="{{ url_for('ver_cliente', id=porcino.cliente.id) }}">
+                    {{ porcino.cliente.nombres }} {{ porcino.cliente.apellidos }}
+                </a>
+            {% else %}
+                -
+            {% endif %}
+        </p>
+    </div>
+
+    <a href="{{ url_for('porcinos') }}" class="link-volver">Volver</a>
+</div>
+</body>
+</html>

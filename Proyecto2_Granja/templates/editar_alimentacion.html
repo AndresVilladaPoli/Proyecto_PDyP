@@ -1,9 +1,35 @@
-<!doctype html><html><body>
-<h2>Editar Alimentación</h2>
-<form method="post">
-  Descripción: <input name="descripcion" value="{{ alimentacion.descripcion }}"><br>
-  Dosis: <input name="dosis" value="{{ alimentacion.dosis }}"><br>
-  <button type="submit">Guardar</button>
-</form>
-<a href="{{ url_for('alimentaciones') }}">Volver</a>
-</body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Alimentación</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="navbar">
+    <a href="/">🏠 Inicio</a>
+    <a href="/clientes">👤 Clientes</a>
+    <a href="/porcinos">🐖 Porcinos</a>
+    <a href="/alimentaciones">🍽️ Alimentaciones</a>
+    <a href="/reporte">📋 Reporte</a>
+</div>
+
+<div class="container">
+    <h2>Editar Alimentación</h2>
+
+    <form method="post">
+        <label>Descripción:</label>
+        <input name="descripcion" value="{{ alimentacion.descripcion }}">
+
+        <label>Dosis:</label>
+        <input name="dosis" value="{{ alimentacion.dosis }}">
+
+        <button class="btn" type="submit">Guardar</button>
+    </form>
+
+    <br>
+    <a class="btn" href="{{ url_for('alimentaciones') }}">Volver</a>
+</div>
+
+</body>
+</html>

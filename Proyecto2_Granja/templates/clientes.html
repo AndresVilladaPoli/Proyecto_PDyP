@@ -1,1 +1,30 @@
-<h2>Clientes</h2>{% for c in clientes %}<p>{{c.nombres}} {{c.apellidos}} - <a href='/clientes/eliminar/{{c.id}}'>Eliminar</a></p>{% endfor %}<a href='/clientes/nuevo'>Nuevo Cliente</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="navbar">
+    <a href="/">🏠 Inicio</a>
+    <a href="/clientes">👤 Clientes</a>
+    <a href="/porcinos">🐖 Porcinos</a>
+    <a href="/alimentaciones">🍽️ Alimentaciones</a>
+    <a href="/reporte">📋 Reporte</a>
+</div>
+
+<div class="container">
+    <h2>Clientes</h2>
+
+    {% for c in clientes %}
+        <p>{{ c.nombres }} {{ c.apellidos }} -
+           <a class="btn" href="/clientes/eliminar/{{ c.id }}">Eliminar</a>
+        </p>
+    {% endfor %}
+
+    <a class="btn" href="/clientes/nuevo">Nuevo Cliente</a>
+</div>
+
+</body>
+</html>

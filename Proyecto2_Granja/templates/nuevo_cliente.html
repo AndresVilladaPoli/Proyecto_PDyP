@@ -1,1 +1,43 @@
-<h2>Nuevo Cliente</h2><form method='post'>Cédula:<input name='cedula'><br>Nombres:<input name='nombres'><br>Apellidos:<input name='apellidos'><br>Dirección:<input name='direccion'><br>Teléfono:<input name='telefono'><br><button type='submit'>Guardar</button></form>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Cliente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="navbar">
+    <a href="/">🏠 Inicio</a>
+    <a href="/clientes">👤 Clientes</a>
+    <a href="/porcinos">🐖 Porcinos</a>
+    <a href="/alimentaciones">🍽️ Alimentaciones</a>
+    <a href="/reporte">📋 Reporte</a>
+</div>
+
+<div class="container">
+    <h2>Nuevo Cliente</h2>
+
+    <form method="post" class="form-card">
+        <label>Cédula:</label>
+        <input type="text" name="cedula" required>
+
+        <label>Nombres:</label>
+        <input type="text" name="nombres" required>
+
+        <label>Apellidos:</label>
+        <input type="text" name="apellidos" required>
+
+        <label>Dirección:</label>
+        <input type="text" name="direccion" required>
+
+        <label>Teléfono:</label>
+        <input type="text" name="telefono" required>
+
+        <button type="submit" class="btn">Guardar</button>
+    </form>
+
+    <a href="{{ url_for('clientes') }}" class="link-volver">Volver</a>
+</div>
+
+</body>
+</html>

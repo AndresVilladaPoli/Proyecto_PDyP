@@ -1,1 +1,35 @@
-<h2>Reporte Porcinos</h2>{% for p in porcinos %}<p>{{p.identificacion}} - {{p.raza}} - {{p.edad}} años - Cliente: {{p.cliente.nombres}} {{p.cliente.apellidos}}</p>{% endfor %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte Porcinos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="navbar">
+    <a href="/">🏠 Inicio</a>
+    <a href="/clientes">👤 Clientes</a>
+    <a href="/porcinos">🐖 Porcinos</a>
+    <a href="/alimentaciones">🍽️ Alimentaciones</a>
+    <a href="/reporte">📋 Reporte</a>
+</div>
+
+<div class="container">
+    <h2>Reporte Porcinos</h2>
+
+    <div class="listado">
+        {% for p in porcinos %}
+        <div class="card">
+            <p><strong>ID:</strong> {{ p.identificacion }}</p>
+            <p><strong>Raza:</strong> {{ p.raza }}</p>
+            <p><strong>Edad:</strong> {{ p.edad }} años</p>
+            <p><strong>Cliente:</strong> {{ p.cliente.nombres }} {{ p.cliente.apellidos }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <a href="{{ url_for('index') }}" class="link-volver">Volver al inicio</a>
+</div>
+
+</body>
+</html>

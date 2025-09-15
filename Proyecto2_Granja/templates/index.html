@@ -1,1 +1,29 @@
-<h1>Bienvenido a Granja S.A.</h1><a href='/clientes'>Clientes</a> | <a href='/porcinos'>Porcinos</a> | <a href='/alimentaciones'>Alimentaciones</a> | <a href='/reporte'>Reporte</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Granja S.A.</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="navbar">
+    <a href="/">🏠 Inicio</a>
+    <a href="/clientes">👤 Clientes</a>
+    <a href="/porcinos">🐖 Porcinos</a>
+    <a href="/alimentaciones">🍽️ Alimentaciones</a>
+    <a href="/reporte">📋 Reporte</a>
+</div>
+
+<div class="container">
+    <h1>Bienvenido a Granja S.A.</h1>
+
+    <nav>
+        <a class="btn" href="/clientes">Clientes</a>
+        <a class="btn" href="/porcinos">Porcinos</a>
+        <a class="btn" href="/alimentaciones">Alimentaciones</a>
+        <a class="btn" href="/reporte">Reporte</a>
+    </nav>
+</div>
+
+</body>
+</html>

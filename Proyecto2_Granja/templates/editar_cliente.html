@@ -1,12 +1,44 @@
-<!doctype html><html><body>
-<h2>Editar Cliente</h2>
-<form method="post">
-  Cédula: <input name="cedula" value="{{ cliente.cedula }}"><br>
-  Nombres: <input name="nombres" value="{{ cliente.nombres }}"><br>
-  Apellidos: <input name="apellidos" value="{{ cliente.apellidos }}"><br>
-  Dirección: <input name="direccion" value="{{ cliente.direccion }}"><br>
-  Teléfono: <input name="telefono" value="{{ cliente.telefono }}"><br>
-  <button type="submit">Guardar</button>
-</form>
-<a href="{{ url_for('clientes') }}">Volver a lista</a>
-</body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Cliente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="navbar">
+    <a href="/">🏠 Inicio</a>
+    <a href="/clientes">👤 Clientes</a>
+    <a href="/porcinos">🐖 Porcinos</a>
+    <a href="/alimentaciones">🍽️ Alimentaciones</a>
+    <a href="/reporte">📋 Reporte</a>
+</div>
+
+<div class="container">
+    <h2>Editar Cliente</h2>
+
+    <form method="post">
+        <label>Cédula:</label>
+        <input name="cedula" value="{{ cliente.cedula }}">
+
+        <label>Nombres:</label>
+        <input name="nombres" value="{{ cliente.nombres }}">
+
+        <label>Apellidos:</label>
+        <input name="apellidos" value="{{ cliente.apellidos }}">
+
+        <label>Dirección:</label>
+        <input name="direccion" value="{{ cliente.direccion }}">
+
+        <label>Teléfono:</label>
+        <input name="telefono" value="{{ cliente.telefono }}">
+
+        <button class="btn" type="submit">Guardar</button>
+    </form>
+
+    <br>
+    <a class="btn" href="{{ url_for('clientes') }}">Volver a lista</a>
+</div>
+
+</body>
+</html>

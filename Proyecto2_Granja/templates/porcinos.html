@@ -1,1 +1,35 @@
-<h2>Porcinos</h2>{% for p in porcinos %}<p>{{p.identificacion}} - {{p.raza}} - Cliente: {{p.cliente.nombres}} <a href='/porcinos/eliminar/{{p.id}}'>Eliminar</a></p>{% endfor %}<a href='/porcinos/nuevo'>Nuevo Porcino</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Porcinos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="navbar">
+    <a href="/">🏠 Inicio</a>
+    <a href="/clientes">👤 Clientes</a>
+    <a href="/porcinos">🐖 Porcinos</a>
+    <a href="/alimentaciones">🍽️ Alimentaciones</a>
+    <a href="/reporte">📋 Reporte</a>
+</div>
+
+<div class="container">
+    <h2>Porcinos</h2>
+
+    <div class="listado">
+        {% for p in porcinos %}
+        <div class="card">
+            <p><strong>ID:</strong> {{ p.identificacion }}</p>
+            <p><strong>Raza:</strong> {{ p.raza }}</p>
+            <p><strong>Cliente:</strong> {{ p.cliente.nombres }}</p>
+            <a href="/porcinos/eliminar/{{p.id}}" class="btn-eliminar">Eliminar</a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <a href="/porcinos/nuevo" class="btn">Nuevo Porcino</a>
+</div>
+
+</body>
+</html>

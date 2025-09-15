@@ -1,1 +1,34 @@
-<h2>Nueva Alimentación</h2><form method='post'>Descripción:<input name='descripcion'><br>Dosis:<input name='dosis'><br><button type='submit'>Guardar</button></form>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva Alimentación</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="navbar">
+    <a href="/">🏠 Inicio</a>
+    <a href="/clientes">👤 Clientes</a>
+    <a href="/porcinos">🐖 Porcinos</a>
+    <a href="/alimentaciones">🍽️ Alimentaciones</a>
+    <a href="/reporte">📋 Reporte</a>
+</div>
+
+<div class="container">
+    <h2>Nueva Alimentación</h2>
+
+    <form method="post" class="form-card">
+        <label>Descripción:</label>
+        <input type="text" name="descripcion" required>
+
+        <label>Dosis:</label>
+        <input type="text" name="dosis" required>
+
+        <button type="submit" class="btn">Guardar</button>
+    </form>
+
+    <a href="{{ url_for('alimentaciones') }}" class="link-volver">Volver</a>
+</div>
+
+</body>
+</html>

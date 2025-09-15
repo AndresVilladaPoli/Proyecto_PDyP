@@ -1,14 +1,39 @@
-<!doctype html><html><body>
-<h2>Detalle Alimentación</h2>
-<p>Descripción: {{ alimentacion.descripcion }}</p>
-<p>Dosis: {{ alimentacion.dosis }}</p>
-<h3>Porcinos con esta alimentación</h3>
-<ul>
-  {% for p in alimentacion.porcinos %}
-    <li><a href="{{ url_for('ver_porcino', id=p.id) }}">{{ p.identificacion }}</a></li>
-  {% else %}
-    <li>Sin porcinos asociados</li>
-  {% endfor %}
-</ul>
-<a href="{{ url_for('alimentaciones') }}">Volver</a>
-</body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle Alimentación</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="navbar">
+    <a href="/">🏠 Inicio</a>
+    <a href="/clientes">👤 Clientes</a>
+    <a href="/porcinos">🐖 Porcinos</a>
+    <a href="/alimentaciones">🍽️ Alimentaciones</a>
+    <a href="/reporte">📋 Reporte</a>
+</div>
+
+<div class="container">
+    <h2>Detalle de Alimentación</h2>
+
+    <div class="card">
+        <p><strong>Descripción:</strong> {{ alimentacion.descripcion }}</p>
+        <p><strong>Dosis:</strong> {{ alimentacion.dosis }}</p>
+    </div>
+
+    <h3>Porcinos con esta alimentación</h3>
+
+    <ul class="lista-simple">
+        {% for p in alimentacion.porcinos %}
+            <li><a href="{{ url_for('ver_porcino', id=p.id) }}">{{ p.identificacion }}</a></li>
+        {% else %}
+            <li>Sin porcinos asociados</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('alimentaciones') }}" class="link-volver">Volver</a>
+</div>
+
+</body>
+</html>
