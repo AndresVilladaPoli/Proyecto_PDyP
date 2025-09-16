@@ -18,13 +18,14 @@
     <h2>Alimentaciones</h2>
 
     {% for a in alimentaciones %}
-        <p>
-            {{ a.descripcion }} - {{ a.dosis }}
+        <div class="card">
+            <p><strong>{{ a.descripcion }}</strong> - {{ a.dosis }}</p>
+            <a class="btn" href="/alimentaciones/{{ a.id }}/editar">Editar</a>
             <a class="btn" href="/alimentaciones/eliminar/{{ a.id }}">Eliminar</a>
-        </p>
+        </div>
     {% endfor %}
 
-    <a class="btn" href="/alimentaciones/nuevo">Nueva Alimentación</a>
+    <a class="btn" href="/alimentaciones/nuevo">➕ Nueva Alimentación</a>
 </div>
 
 </body>

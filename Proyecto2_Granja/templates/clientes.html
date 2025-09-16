@@ -18,8 +18,10 @@
     <h2>Clientes</h2>
 
     {% for c in clientes %}
-        <p>{{ c.nombres }} {{ c.apellidos }} -
-           <a class="btn" href="/clientes/eliminar/{{ c.id }}">Eliminar</a>
+        <p>
+            {{ c.nombres }} {{ c.apellidos }}
+            <a class="btn" href="/clientes/{{ c.id }}/editar">Editar</a>
+            <a class="btn" href="/clientes/eliminar/{{ c.id }}">Eliminar</a>
         </p>
     {% endfor %}
 

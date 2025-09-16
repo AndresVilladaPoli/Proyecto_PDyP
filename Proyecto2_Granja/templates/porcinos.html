@@ -23,7 +23,8 @@
             <p><strong>ID:</strong> {{ p.identificacion }}</p>
             <p><strong>Raza:</strong> {{ p.raza }}</p>
             <p><strong>Cliente:</strong> {{ p.cliente.nombres }}</p>
-            <a href="/porcinos/eliminar/{{p.id}}" class="btn-eliminar">Eliminar</a>
+            <a class="btn" href="/porcinos/{{ p.id }}/editar">Editar</a>
+            <a href="/porcinos/eliminar/{{p.id}}" class="btn">Eliminar</a>
         </div>
         {% endfor %}
     </div>
