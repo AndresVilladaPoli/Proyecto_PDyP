@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from models import db, Cliente, Porcino, Alimentacion
+from schema import schema  # para Strawberry
+from strawberry.flask.views import GraphQLView  
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///granja.db'
@@ -13,7 +15,7 @@ with app.app_context():
 def index():
     return render_template("index.html")
 
-#CRUD CLIENTES
+#CRUD CLIENTES 
 @app.route("/clientes")
 def clientes():
     lista = Cliente.query.all()
@@ -155,6 +157,16 @@ def ver_alimentacion(id):
 def reporte():
     porcinos = Porcino.query.all()
     return render_template("reporte.html", porcinos=porcinos)
+
+# GRAPHQL
+app.add_url_rule(
+    "/graphql",
+    view_func=GraphQLView.as_view(
+        "graphql_view",
+        schema=schema,
+        graphiql=True  # habilita interfaz web
+    )
+)
 
 if __name__ == "__main__":
     app.run(debug=True)

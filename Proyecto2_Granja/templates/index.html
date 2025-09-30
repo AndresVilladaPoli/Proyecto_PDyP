@@ -1,28 +1,105 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Granja S.A.</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f9fc;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background: #2c3e50;
+            padding: 15px;
+            display: flex;
+            gap: 20px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #555;
+            margin-bottom: 40px;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        .icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-<div class="navbar">
-    <a href="/">🏠 Inicio</a>
-    <a href="/clientes">👤 Clientes</a>
-    <a href="/porcinos">🐖 Porcinos</a>
-    <a href="/alimentaciones">🍽️ Alimentaciones</a>
-    <a href="/reporte">📋 Reporte</a>
-</div>
+    <div class="navbar">
+        <a href="/">🏠 Inicio</a>
+        <a href="/clientes">👤 Clientes</a>
+        <a href="/porcinos">🐖 Porcinos</a>
+        <a href="/alimentaciones">🍽️ Alimentaciones</a>
+        <a href="/reporte">📋 Reporte</a>
+    </div>
 
+```
 <div class="container">
     <h1>Bienvenido a Granja S.A.</h1>
+    <p>Gestiona clientes, porcinos y planes de alimentación desde un solo lugar.</p>
 
-    <nav>
-        <a class="btn" href="/clientes">Clientes</a>
-        <a class="btn" href="/porcinos">Porcinos</a>
-        <a class="btn" href="/alimentaciones">Alimentaciones</a>
-        <a class="btn" href="/reporte">Reporte</a>
-    </nav>
+    <div class="cards">
+        <div class="card">
+            <div class="icon">👤</div>
+            <h3>Clientes</h3>
+            <a href="/clientes">Ver clientes</a>
+        </div>
+        <div class="card">
+            <div class="icon">🐖</div>
+            <h3>Porcinos</h3>
+            <a href="/porcinos">Gestionar porcinos</a>
+        </div>
+        <div class="card">
+            <div class="icon">🍽️</div>
+            <h3>Alimentaciones</h3>
+            <a href="/alimentaciones">Controlar alimentación</a>
+        </div>
+        <div class="card">
+            <div class="icon">📋</div>
+            <h3>Reporte</h3>
+            <a href="/reporte">Ver reporte</a>
+        </div>
+    </div>
 </div>
 
 </body>
