@@ -1,0 +1,244 @@
+/* =========================================================
+   ESTILOS GENERALES
+========================================================= */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #333;
+}
+
+a { 
+  text-decoration: none; 
+  color: inherit;
+}
+
+header {
+  background: #1c6c44;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+main {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  border: 2px solid #1c6c44;
+  transition: 0.25s;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  margin-bottom: 25px;
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.card:hover {
+  background: #1c6c44;
+  color: white;
+  transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.primary {
+  background: #1c6c44;
+  color: white;
+}
+
+.primary:hover {
+  background: #155233;
+}
+
+.secondary {
+  background: #e2e2e2;
+}
+
+.secondary:hover {
+  background: #cacaca;
+}
+
+.link {
+  background: transparent;
+  color: #1c6c44;
+  padding: 8px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   FORMULARIOS (CRUD)
+========================================================= */
+
+form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+.row div {
+  flex: 1;
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   TABLA (CRUD)
+========================================================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background: #1c6c44;
+  color: white;
+}
+
+tr:hover {
+  background: #f1f1f1;
+}
+
+
+/* =========================================================
+   HOME PAGE (index.html)
+========================================================= */
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.home-card {
+  text-align: center;
+  max-width: 450px;
+}
+
+.home-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+/* =========================================================
+   VIEW PAGE (view.html)
+========================================================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.item-card h3 {
+  margin-top: 0;
+}
+
+.item-card .small {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+
+/* =========================================================
+   REPORT PAGE (report.html)
+========================================================= */
+
+.report-container {
+  margin-top: 20px;
+  padding: 20px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  white-space: pre-wrap;
+  font-family: monospace;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  background: #f0f0f0;
+  color: #555;
+}
+
+/* =========================================================
+   CARD GRID (index.html)
+========================================================= */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
