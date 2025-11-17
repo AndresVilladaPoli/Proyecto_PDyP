@@ -27,7 +27,7 @@ db.serialize(() => {
   )`);
 });
 
-// --- CRUD endpoints ---
+// CRUD endpoints
 
 // Listar todos
 app.get('/api/items', (req, res) => {
@@ -92,7 +92,7 @@ app.delete('/api/items/:id', (req, res) => {
   });
 });
 
-// --- Informes: json y xml ---
+//Informes: json y xml
 
 // JSON report (agrupa por categoria)
 app.get('/api/report/json', (req, res) => {

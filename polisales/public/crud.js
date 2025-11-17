@@ -1,8 +1,6 @@
 const API_URL = "http://localhost:3000/api/items";
 
-// ===============================
-//   CARGAR PUBLICACIONES
-// ===============================
+//Cargar Publicaciones
 async function loadItems() {
   try {
     const res = await fetch(API_URL);
@@ -34,9 +32,8 @@ async function loadItems() {
   }
 }
 
-// ===============================
-//   EDITAR PUBLICACIÓN
-// ===============================
+
+//Editar
 async function editItem(id) {
   try {
     const res = await fetch(`${API_URL}/${id}`);
@@ -54,9 +51,8 @@ async function editItem(id) {
   }
 }
 
-// ===============================
-//   ELIMINAR PUBLICACIÓN
-// ===============================
+//Eliminar
+
 async function deleteItem(id) {
   if (!confirm("¿Seguro deseas eliminar esta publicación?")) return;
 
@@ -68,9 +64,8 @@ async function deleteItem(id) {
   }
 }
 
-// ===============================
-//   GUARDAR O ACTUALIZAR
-// ===============================
+
+//Guardar / Actualizar
 document.querySelector("#itemForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -119,15 +114,10 @@ document.querySelector("#itemForm").addEventListener("submit", async (e) => {
   }
 });
 
-// ===============================
-//   BOTÓN NUEVO
-// ===============================
+//Botón Nuevo
 document.querySelector("#resetBtn").addEventListener("click", () => {
   document.querySelector("#itemForm").reset();
   document.querySelector("#itemId").value = "";
 });
 
-// ===============================
-//   CARGAR AL INICIAR
-// ===============================
 loadItems();
